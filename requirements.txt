@@ -2,3 +2,4 @@ opencv-python
 numpy
 tensorflow
 tf-pose-estimation
+tensorflow>=2.0,<3.0

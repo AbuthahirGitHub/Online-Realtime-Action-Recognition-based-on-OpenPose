@@ -68,3 +68,8 @@ Thanks to the following awesome works:
  - [tf-pose-estimation](https://github.com/ildoonet/tf-pose-estimation)   
  - [deep_sort_yolov3](https://github.com/Qidian213/deep_sort_yolov3)    
  - [Real-Time-Action-Recognition](https://github.com/TianzhongSong/Real-Time-Action-Recognition)
+
+sudo apt-get update
+sudo apt-get install libgl1-mesa-glx
+pip install tensorflow
+pip install tensorflow==2.x
