@@ -77,7 +77,7 @@ def extract_image_patch(image, bbox, patch_shape):
     return image
 
 
-class ImageEncoder(object):
+"""class ImageEncoder(object):
     def __init__(self, checkpoint_filename, input_name="images", output_name="features"):
         with tf.io.gfile.GFile(checkpoint_filename, "rb") as f:
             graph_def = tf.GraphDef()
@@ -102,7 +102,7 @@ class ImageEncoder(object):
             {self.input_var: data_x}, out, batch_size)
         return out
 
-
+"""
 def create_box_encoder(model_filename, input_name="images", output_name="features", batch_size=32):
     image_encoder = ImageEncoder(model_filename, input_name, output_name)
     image_shape = image_encoder.image_shape
