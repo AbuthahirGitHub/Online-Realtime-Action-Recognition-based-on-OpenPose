@@ -4,6 +4,17 @@ import numpy as np
 import cv2
 import tensorflow as tf
 
+import tensorflow as tf
+tf.compat.v1.disable_v2_behavior()
+
+class ImageEncoder(object):
+    def __init__(self, checkpoint_filename, input_name="images", output_name="features"):
+        with tf.gfile.GFile(checkpoint_filename, "rb") as f:
+            graph_def = tf.GraphDef()
+            graph_def.ParseFromString(f.read())
+
+        self.graph = tf.get_default_graph()
+        tf.import_graph_def(graph_def, name="net")
 
 def _run_in_batches(f, data_dict, out, batch_size):
     data_len = len(out)
@@ -68,7 +79,7 @@ def extract_image_patch(image, bbox, patch_shape):
 
 class ImageEncoder(object):
     def __init__(self, checkpoint_filename, input_name="images", output_name="features"):
-        with tf.gfile.GFile(checkpoint_filename, "rb") as f:
+        with tf.io.gfile.GFile(checkpoint_filename, "rb") as f:
             graph_def = tf.GraphDef()
             graph_def.ParseFromString(f.read())
 
